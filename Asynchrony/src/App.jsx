@@ -19,7 +19,7 @@ export default function App() {
 
   // Error handling and rendering
   if (error) {
-    return (<div style={{ color: 'black', }}> {error}</div>);
+    return (<div style={{ color: 'black', }}>{error}</div>);
   }
 
   // Normal rendering when there's no error
