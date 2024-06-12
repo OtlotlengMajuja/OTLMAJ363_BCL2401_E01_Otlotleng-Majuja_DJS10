@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import './App.css'
 
 export default function App() {
   const [posts, setPosts] = useState([]);
@@ -9,7 +8,7 @@ export default function App() {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => {
         if (!response.ok) {
-          throw new Error('Failed to fetch posts');
+          throw new Error('Data fetching failed');
         }
         return response.json();
       })
@@ -17,7 +16,10 @@ export default function App() {
       .catch(error => setError(error.message));
   }, []);
 
+  if (error) {
+    return <div style={{ color: 'red' }}>{error}</div>;
+  }
 
-  return ()
+ 
 }
 
