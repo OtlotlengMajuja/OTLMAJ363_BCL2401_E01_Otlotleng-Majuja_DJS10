@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
 export default function App() {
   const [posts, setPosts] = useState([]);
@@ -6,20 +6,31 @@ export default function App() {
 
   // Fetching API
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
         if (!response.ok) {
           throw new Error("Data fetching failed");
         }
-        return response.json();
-      })
-      .then(data => setPosts(data))
-      .catch(error => setError(error.message));
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        setError("Data fetching failed");
+      }
+    };
+
+    fetchPosts();
   }, []);
 
   // Error handling and rendering
   if (error) {
-    return (<div style={{ color: 'black', }}>{error}</div>);
+    return (
+      <div style={{ color: "black" }}>
+        <strong>{error}</strong>
+      </div>
+    );
   }
 
   // Normal rendering when there's no error
@@ -29,13 +40,14 @@ export default function App() {
       <ul style={{ listStyleType: "none", padding: 0 }}>
         {posts.map((post, index) => (
           <li key={post.id}>
-            <h2> {index + 1}. {post.title}</h2>
+            <h2>
+              {" "}
+              {index + 1}. {post.title}
+            </h2>
             <p>{post.body}</p>
           </li>
         ))}
       </ul>
     </div>
   );
- 
 }
-

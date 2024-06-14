@@ -1,42 +1,40 @@
-## Project Brief: DJS10 - Asynchrony
+# DJS10 Project - Asynchrony
 
-#### Objective
-Dive into the asynchronous world of React by creating an application that fetches and displays blog posts from an API. You'll practice handling API calls with the Fetch API, managing application state, and gracefully handling errors.
+## Introduction
 
-#### Project Description
-Your task is to build a React application that makes HTTP GET requests to the JSONPlaceholder API to retrieve a list of dummy blog posts. The application should render the titles and bodies of these posts on the screen. You'll also implement error handling to manage unsuccessful API calls.
+I had to make a basic React application for this project that pulls blog entries from an external API and displays them. The application serves as an example of how to handle errors and maintain a seamless user experience using React hooks for side effects and state management.
 
-#### Requirements
+## Project Overview
 
-1. **Project**: Create a React application
+This project's primary goal is to retrieve blog posts from `https://jsonplaceholder.typicode.com/posts` and present them within the user interface. The project demonstrates how to use hooks to manage state, integrate other APIs into a React application, and gracefully handle errors.
 
-1. **API Integration**: Use the Fetch API to asynchronously fetch blog posts from `https://jsonplaceholder.typicode.com/posts`. Ensure the API response is checked—if it's not "ok", throw an error.
-2. **State Management**: Store the fetched posts in the application's state. Use React hooks like `useState` and `useEffect` to manage state and side effects.
-3. **Error Handling**: Catch any errors that might occur during the API call. If an error occurs, catch it and store the error message in the state instead of logging it to the console.
-4. **UI Rendering**:
-   - If the API call is successful, display each post's title and body in your application.
-    ![alt text](<images/blog-posts.png>)
-   - If the API call fails, display a user-friendly error message. Ensure your application does not crash.
-    ![alt text](<images/error-message.png>)
-5. **Testing Error States**: Simulate an error state by modifying the API URL to an incorrect address, and observe if the application correctly handles the error by displaying the appropriate message.
+## Requirements
 
-#### Additional Guidelines
+1. Create a React application
+2. API Integration
+3. State Management
+4. Error Handling
+5. UI Rendering
+6. Testing Error States
 
-- Prioritize clean, readable code. Make sure to separate concerns by keeping your fetching logic and UI rendering distinct.
-- Comment your code where necessary to explain why certain decisions were made, especially around error handling.
-- No styling is required.
+## Elements Included
 
+**API Integration:** asynchronously retrieved blog entries from `https://jsonplaceholder.typicode.com/posts` using the Fetch API. Looked for issues in the API response and handled them appropriately.
 
-#### Evaluation Criteria
+**State Management:** managed the fetched posts using React's useState hook. When the component mounts, the API call is made using the useEffect hook.
 
-- Correct implementation of asynchronous data fetching.
-- Effective state management and error handling.
-- Code readability and structure.
-- Handling of edge cases and potential errors.
+**Error Handling:** included error handling to identify and show errors that occurred during the API call. Error messages were shown to the user after being saved in the state.
 
+## Reflections
 
+### Areas of Mastery
 
+**API Integration:** successfully used the Fetch API to incorporate an external API and efficiently handled asynchronous processes.
 
+**State Management:** effectively managed the side effects and component state using the React hooks `useState` and `useEffect`.
 
+**Error Handling:** incorporated robust error handling to guarantee that, in the event of a malfunction, the user receives insightful feedback from the programme.
 
+### Challenges Faced
 
+Making sure the user interface (UI) appeared appropriately depending on various states was the main problem I faced. As well as managing the conditional logic to display either the blog posts or an error message was crucial for a good user experience.
